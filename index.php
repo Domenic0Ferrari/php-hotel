@@ -53,15 +53,19 @@
     <div class="container">
         <h1 class="text-center">Ricerca Hotel</h1>
         <ul>
-            <li>
-                <?php 
+            <?php 
                 foreach($hotels as $hotel){
                     foreach($hotel as $valor){
-                        echo $valor;
+            ?>
+            <li>
+                <?php 
+                    echo $valor;
+                ?>
+            </li>     
+            <?php 
                     }
                 }
-                ?>
-            </li>
+            ?>       
         </ul>
     </div>
 </body>
