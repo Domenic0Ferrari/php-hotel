@@ -53,7 +53,7 @@
     <div class="container mt-5">
         <h1 class="text-center text-primary">Ricerca Hotel</h1>
         <form action="" method="get">
-            <select class="form-select" aria-label="Default select example">
+            <select class="form-select" aria-label="Default select example" name="park">
                 <option selected>Open this select menu</option>
                 <option value="1">With Parking</option>
                 <option value="2">Withouth Parking</option>
@@ -69,38 +69,46 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?php
+                    <?php 
+                    if ($_GET['park'] == ''){
                         foreach($hotels as $hotel){
-                    ?>
-                    <tr>
-                        <td>
-                            <?php
-                            echo $hotel['name'];
-                            ?>
-                        </td>
-                        <td>
-                            <?php
-                            echo $hotel['description'];
-                            ?>
-                        </td>
-                        <td>
-                            <?php
-                            echo $hotel['parking'];
-                            ?>
-                        </td>
-                        <td>
-                            <?php
-                            echo $hotel['vote'];
-                            ?>
-                        </td>
-                        <td>
-                            <?php
-                            echo $hotel['distance_to_center'];
-                            ?>
-                        </td>
-                    </tr>
-                    <?php    
-                        }
+                            if ($hotel['parking'] == true) {
+                                 echo "<tr>" . "<td>" . $hotel['name'] . "</td>" .
+                                 "<td>" . $hotel['description'] . "</td>" . 
+                                 "<td>" . 'Yes' . "</td>" . 
+                                 "<td>" . $hotel['vote'] . "</td>" . 
+                                 "<td>" . $hotel['distance_to_center'] . "</td>" . "</tr>";
+                            }else{
+                                 echo "<tr>" . "<td>" . $hotel['name'] . "</td>" .
+                                 "<td>" . $hotel['description'] . "</td>" . 
+                                 "<td>" . 'No' . "</td>" . 
+                                 "<td>" . $hotel['vote'] . "</td>" . 
+                                 "<td>" . $hotel['distance_to_center'] . "</td>" . "</tr>";
+                            };
+                       }
+                    }
+                    elseif($_GET['park'] == 1){
+                        foreach($hotels as $hotel){
+                            if ($hotel['parking'] == true) {
+                                 echo "<tr>" . "<td>" . $hotel['name'] . "</td>" .
+                                 "<td>" . $hotel['description'] . "</td>" . 
+                                 "<td>" . 'Yes' . "</td>" . 
+                                 "<td>" . $hotel['vote'] . "</td>" . 
+                                 "<td>" . $hotel['distance_to_center'] . "</td>" . "</tr>";
+                            }
+                       }
+                    }
+                    elseif($_GET['park'] == 2){
+                        foreach($hotels as $hotel){
+                            if ($hotel['parking'] == false) {
+                                 echo "<tr>" . "<td>" . $hotel['name'] . "</td>" .
+                                 "<td>" . $hotel['description'] . "</td>" . 
+                                 "<td>" . 'NO' . "</td>" . 
+                                 "<td>" . $hotel['vote'] . "</td>" . 
+                                 "<td>" . $hotel['distance_to_center'] . "</td>" . "</tr>";
+                            }
+                       }
+                    }
                     ?>
                 </tbody>
             </table>
