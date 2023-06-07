@@ -48,6 +48,15 @@
     <title>php-hotel</title>
 </head>
 <body>
-    
+    <?php 
+    foreach($hotels as $hotel){
+    ?>
+    <h2>
+        <?php echo $hotel["name"];
+        ?>
+    </h2>
+    <?php
+    }
+    ?>
 </body>
 </html>
