@@ -50,23 +50,61 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous" defer></script>
 </head>
 <body>
-    <div class="container">
-        <h1 class="text-center">Ricerca Hotel</h1>
-        <ul>
-            <?php 
-                foreach($hotels as $hotel){
-                    foreach($hotel as $valor){
-            ?>
-            <li>
-                <?php 
-                    echo $valor;
-                ?>
-            </li>     
-            <?php 
-                    }
-                }
-            ?>       
-        </ul>
+    <div class="container mt-5">
+        <h1 class="text-center text-primary">Ricerca Hotel</h1>
+        <form action="" method="get">
+            <select class="form-select" aria-label="Default select example">
+                <option selected>Open this select menu</option>
+                <option value="1">With Parking</option>
+                <option value="2">Withouth Parking</option>
+            </select>
+            <table class="table">
+                <thead>
+                    <tr>
+                    <th scope="col">NAME</th>
+                    <th scope="col">DESCRIPTION</th>
+                    <th scope="col">PARKING</th>
+                    <th scope="col">VOTE</th>
+                    <th scope="col">DISTANCE</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                        foreach($hotels as $hotel){
+                    ?>
+                    <tr>
+                        <td>
+                            <?php
+                            echo $hotel['name'];
+                            ?>
+                        </td>
+                        <td>
+                            <?php
+                            echo $hotel['description'];
+                            ?>
+                        </td>
+                        <td>
+                            <?php
+                            echo $hotel['parking'];
+                            ?>
+                        </td>
+                        <td>
+                            <?php
+                            echo $hotel['vote'];
+                            ?>
+                        </td>
+                        <td>
+                            <?php
+                            echo $hotel['distance_to_center'];
+                            ?>
+                        </td>
+                    </tr>
+                    <?php    
+                        }
+                    ?>
+                </tbody>
+            </table>
+        </form>
     </div>
 </body>
 </html>
