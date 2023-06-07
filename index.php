@@ -58,7 +58,15 @@
                 <option value="1">With Parking</option>
                 <option value="2">Withouth Parking</option>
             </select>
-            <input type="submit">
+            <!-- <select class="form-select" aria-label="Default select example" name="vote">
+                <option value="0" selected>Tutti gli hotel</option>
+                <option value="1">Voto: 1</option>
+                <option value="2">Voto: 2</option>
+                <option value="3">Voto: 3</option>
+                <option value="4">Voto: 4</option>
+                <option value="5">Voto: 5</option>
+            </select> -->
+            <input type="submit" class="btn btn-primary mt-3 mb-3">
         </form>
         <table class="table">
                 <thead>
