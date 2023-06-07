@@ -54,11 +54,13 @@
         <h1 class="text-center text-primary">Ricerca Hotel</h1>
         <form action="" method="get">
             <select class="form-select" aria-label="Default select example" name="park">
-                <option selected>Open this select menu</option>
+                <option value="0" selected>Tutti gli hotel</option>
                 <option value="1">With Parking</option>
                 <option value="2">Withouth Parking</option>
             </select>
-            <table class="table">
+            <input type="submit">
+        </form>
+        <table class="table">
                 <thead>
                     <tr>
                     <th scope="col">NAME</th>
@@ -70,7 +72,7 @@
                 </thead>
                 <tbody>
                     <?php 
-                    if ($_GET['park'] == ''){
+                    if (!isset($_GET['park']) || $_GET['park'] == 0){
                         foreach($hotels as $hotel){
                             if ($hotel['parking'] == true) {
                                  echo "<tr>" . "<td>" . $hotel['name'] . "</td>" .
@@ -112,7 +114,6 @@
                     ?>
                 </tbody>
             </table>
-        </form>
     </div>
 </body>
 </html>
